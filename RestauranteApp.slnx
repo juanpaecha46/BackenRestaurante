@@ -19,4 +19,10 @@
     <Project Path="src/Services/OrderService/OrderService.Infrastructure/OrderService.Infrastructure.csproj" />
     <Project Path="src/Services/OrderService/OrderService.WebApi/OrderService.WebApi.csproj" />
   </Folder>
+  <Folder Name="/src/Services/SeatingService/">
+    <Project Path="src/Services/SeatingService/SeatingService.Application/SeatingService.Application.csproj" />
+    <Project Path="src/Services/SeatingService/SeatingService.Domain/SeatingService.Domain.csproj" />
+    <Project Path="src/Services/SeatingService/SeatingService.Infrastructure/SeatingService.Infrastructure.csproj" />
+    <Project Path="src/Services/SeatingService/SeatingService.WebApi/SeatingService.WebApi.csproj" />
+  </Folder>
 </Solution>

@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx --prefix \"/c/Users/ADMIN/Desktop/RestauranteApp/FrontRestaurante\" tsc --noEmit)",
+      "Read(//c/Users/ADMIN/Desktop/RestauranteApp/FrontRestaurante/**)",
+      "Bash(node_modules/.bin/tsc --noEmit -p tsconfig.app.json)",
+      "Bash(echo \"EXIT:$?\")",
+      "Bash(npm run *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5174)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5175)",
+      "Bash(dotnet build *)",
+      "Bash(node *)",
+      "Bash(dotnet run *)",
+      "Bash(echo \"PID: $!\")",
+      "Bash(curl -s -w \"\\\\nHTTP:%{http_code}\" http://localhost:5253/api/auth/login -X POST -H \"Content-Type: application/json\" -d '{\"email\":\"admin@restaurante.com\",\"password\":\"Admin123!\"}')",
+      "Bash(curl *)"
+    ]
+  }
+}

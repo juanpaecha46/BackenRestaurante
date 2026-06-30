@@ -1,6 +1,83 @@
 @SeatingService.WebApi_HostAddress = http://localhost:5150
+@token = Bearer <JWT_TOKEN>
 
-GET {{SeatingService.WebApi_HostAddress}}/weatherforecast/
+### Obtener todas las mesas
+GET {{SeatingService.WebApi_HostAddress}}/api/tables
 Accept: application/json
+Authorization: {{token}}
+
+###
+
+### Obtener mesas por estado (Available | Reserved | Occupied | OutOfService)
+GET {{SeatingService.WebApi_HostAddress}}/api/tables?status=Available
+Accept: application/json
+Authorization: {{token}}
+
+###
+
+### Obtener mesa por Id
+GET {{SeatingService.WebApi_HostAddress}}/api/tables/00000000-0000-0000-0000-000000000000
+Accept: application/json
+Authorization: {{token}}
+
+###
+
+### Crear una mesa (solo Admin)
+POST {{SeatingService.WebApi_HostAddress}}/api/tables
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "number": "1",
+  "capacity": 4,
+  "location": "Salón principal"
+}
+
+###
+
+### Actualizar mesa (solo Admin)
+PUT {{SeatingService.WebApi_HostAddress}}/api/tables/00000000-0000-0000-0000-000000000000
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "number": "1",
+  "capacity": 6,
+  "location": "Terraza"
+}
+
+###
+
+### Eliminar mesa (solo Admin)
+DELETE {{SeatingService.WebApi_HostAddress}}/api/tables/00000000-0000-0000-0000-000000000000
+Authorization: {{token}}
+
+###
+
+### Asignar pedido a una mesa (Admin, Waiter)
+POST {{SeatingService.WebApi_HostAddress}}/api/tables/00000000-0000-0000-0000-000000000000/assign-order
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "orderId": "00000000-0000-0000-0000-000000000001"
+}
+
+###
+
+### Liberar mesa (Admin, Waiter, Cashier)
+POST {{SeatingService.WebApi_HostAddress}}/api/tables/00000000-0000-0000-0000-000000000000/release
+Authorization: {{token}}
+
+###
+
+### Cambiar estado de mesa manualmente (solo Admin)
+PATCH {{SeatingService.WebApi_HostAddress}}/api/tables/00000000-0000-0000-0000-000000000000/status
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "status": 2
+}
 
 ###
